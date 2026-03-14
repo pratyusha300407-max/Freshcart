@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "navbar.html" %}
+
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>FreshKart Authentication</h1>
+
+<h2>Register</h2>
+
+<form method="POST">
+
+<input type="hidden" name="action" value="register">
+
+<label>Name</label><br>
+<input type="text" name="name" required><br><br>
+
+<label>Email</label><br>
+<input type="email" name="email" required><br><br>
+
+<label>Password</label><br>
+<input type="password" name="password" required><br><br>
+
+<label>Role</label><br>
+<select name="role">
+<option value="customer">Customer</option>
+<option value="farmer">Farmer</option>
+</select><br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+<hr>
+
+<h2>Login</h2>
+
+<form method="POST">
+
+<input type="hidden" name="action" value="login">
+
+<label>Email</label><br>
+<input type="email" name="email"><br><br>
+
+<label>Password</label><br>
+<input type="password" name="password"><br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "navbar.html" %}
+
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Marketplace Products</h1>
+
+{% for p in products %}
+
+<div>
+
+<h3>{{p.name}}</h3>
+
+<p>Price: {{p.price}}</p>
+
+<img src="/uploads/{{p.image}}" width="150">
+<form method="POST">
+
+<input type="number" name="quantity" placeholder="Quantity" required>
+
+<br><br>
+
+<button formaction="/add_to_cart/{{p.id}}">Add to Cart</button>
+
+<button formaction="/order_now/{{p.id}}">Order Now</button>
+
+</form>
+
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>

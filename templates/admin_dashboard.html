@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include "navbar.html" %}
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<h2>Statistics</h2>
+
+<p>Total Farmers: {{farmers}}</p>
+<p>Total Customers: {{customers}}</p>
+<p>Total Items Sold: {{sold}}</p>
+
+<hr>
+
+<h2>Pending Farmer Requests</h2>
+
+{% for p in pending %}
+
+<p>
+
+{{p[1]}} - {{p[2]}}
+
+<a href="/approve/{{p[0]}}">Approve</a>
+
+<a href="/reject/{{p[0]}}">Reject</a>
+
+</p>
+
+{% endfor %}
+
+<hr>
+
+<h2>Farmer Details</h2>
+
+{% for f in farmer_details %}
+
+<p>{{f[1]}} - {{f[2]}}</p>
+
+{% endfor %}
+
+<hr>
+
+<h2>Customer Details</h2>
+
+{% for c in customer_details %}
+
+<p>{{c[1]}} - {{c[2]}}</p>
+
+{% endfor %}
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "navbar.html" %}
+
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Farmer Dashboard</h1>
+
+<a href="/add_product">Add Product</a>
+
+<br><br>
+
+<table border="1">
+
+<tr>
+<th>Product Name</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Image</th>
+<th>Action</th>
+</tr>
+
+{% for p in products %}
+
+<tr>
+
+<td>{{p.name}}</td>
+
+<td>{{p.price}}</td>
+
+<td>{{p.quantity}}</td>
+
+<td>
+<img src="/uploads/{{p.image}}" width="80">
+</td>
+
+<td>
+<a href="/edit_product/{{p.id}}">Edit</a>
+<a href="/delete/{{p.id}}">Delete</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+<h2>Customer Orders</h2>
+
+<table border="1">
+
+<tr>
+<th>Product</th>
+<th>Quantity</th>
+<th>Action</th>
+</tr>
+
+{% for o in orders %}
+
+<tr>
+
+<td>{{o.name}}</td>
+
+<td>{{o.quantity}}</td>
+
+<td>
+<a href="/deliver/{{o.id}}">Deliver</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

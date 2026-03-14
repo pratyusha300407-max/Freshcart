@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "navbar.html" %}
+
+<title>Edit Product</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Edit Product</h1>
+
+<form method="POST">
+
+<label>Product Name</label>
+<input type="text" name="name" value="{{product.name}}">
+
+<label>Price</label>
+<input type="number" name="price" value="{{product.price}}">
+
+<label>Quantity</label>
+<input type="number" name="quantity" value="{{product.quantity}}">
+
+<button type="submit">Update Product</button>
+
+</form>
+
+</body>
+</html>

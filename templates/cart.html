@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "navbar.html" %}
+
+    <title>Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Your Cart</h1>
+
+<table border="1">
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Order</th>
+</tr>
+
+{% for item in items %}
+
+<tr>
+
+<td>{{item[1]}}</td>
+
+<td>{{item[2]}}</td>
+
+<td>{{item[3]}}</td>
+<td>
+<form action="/place_order/{{item[0]}}" method="POST">
+<button type="submit">Order</button>
+</form>
+</td>
+
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
